@@ -29,7 +29,7 @@ const Navbar = () => {
       
       // console.log(query.toLowerCase())
       // console.log(pathname) 
-      filter(query)
+      filter(query.toLowerCase())
     }
 
   return (
