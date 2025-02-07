@@ -1,13 +1,12 @@
 'use client'
 import Blogitem from "@/components/Blogitem";
 import { blogContext } from "@/contexts/blogs/Blogstate";
-import { useRouter } from "next/navigation";
+import Image from "next/image";
 import { useContext, useEffect, useState } from "react";
 
 export default function Home() {
 
-  const {setlgout, fetchposts , allposts, allsuccess } = useContext(blogContext)
-  const router = useRouter()
+  const {fetchposts , myposts , success , setloading, loading} = useContext(blogContext)
 
   const [page, setpage] = useState(1)
 
@@ -17,8 +16,6 @@ export default function Home() {
      fetchposts(page-1)
   }
 
-  const [user, setuser] = useState(null)
-
   const handleNext = (e) =>{
     e.preventDefault()
     setpage(page+1)
@@ -26,30 +23,25 @@ export default function Home() {
  }
 
   useEffect(() => {
-    if(!localStorage.getItem("userid")){
-      router.push("/login")
-      return
-    }
-    setuser(localStorage.getItem("userid"))
+    setloading(true)
     fetchposts(page)
-    setlgout(false)
+    setloading(false)
 
   }, [])
 
   return (
-  <>
-   {!user ? "" :  <>
+<>{!loading &&    <>
    <div className="bg-white py-6 sm:py-8 lg:py-12">
    <div className="mx-auto max-w-screen-2xl px-4 md:px-8">
 
     <div className="mb-10 md:mb-16">
-      <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">{allposts.length >0 ? "All blogs" : "No blogs availble" }</h2>
+      <h2 className="mb-4 text-center text-2xl font-bold text-gray-800 md:mb-6 lg:text-3xl">{myposts.length >0 ? "Your blogs" : "You did not have any blogs" }</h2>
 
     </div>
 
 
     <div className="grid gap-4 sm:grid-cols-2 md:gap-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-8">
-       {allposts.length >0 && allposts.map((val) => {
+       {myposts.length >0 && myposts.map((val) => {
         return <Blogitem key={val._id} {...val}></Blogitem>
        })}
     </div>
@@ -57,7 +49,7 @@ export default function Home() {
 
 </div>
 
-{allposts.length >0 && <div   className="bottom-4 left-0 right-0 flex justify-between items-center space-x-4 p-4">
+{myposts.length >0 && <div   className="bottom-4 left-0 right-0 flex justify-between items-center space-x-4 p-4">
             <button
         
         onClick={handlePrevious}
@@ -67,12 +59,11 @@ export default function Home() {
             
             <button onClick={handleNext}
             
-                className={`px-10 py-2 rounded-lg bg-gray-800 text-white  hover:bg-gray-600 ${allsuccess ? "opacity-50 cursor-not-allowed" : ""}`}
+                className={`px-10 py-2 rounded-lg bg-gray-800 text-white  hover:bg-gray-600 ${success ? "opacity-50 cursor-not-allowed" : ""}`}
             >
                 Next
             </button>
         </div>}
-   </>}
-  </>
+   </>}</>
   );
 }
