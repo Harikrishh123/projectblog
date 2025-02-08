@@ -17,6 +17,8 @@ export async function GET(req){
 
     const user = await User.findOne({email : email})
 
+  
+
     if(!user){
         return NextResponse.json({success : false, status : 403 , error : "User doesn't exist. Please register!"})
         
