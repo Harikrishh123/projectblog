@@ -88,7 +88,7 @@ useEffect(() => {
         </div>
         <button
           type="submit"
-          className="w-full px-4 py-2 text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none dark:bg-primary-600 dark:hover:bg-primary-700"
+          className="w-full px-4 py-2 text-gray-900 dark:text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:ring-4 focus:outline-none dark:bg-primary-600 dark:hover:bg-primary-700"
         >
           Sign in
         </button>
