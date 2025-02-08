@@ -1,6 +1,5 @@
 import connectdb from "@/db/connectdb";
 import User from "@/dbmodels/User";
-import mongoose from "mongoose";
 import { NextResponse } from "next/server";
 var bcrypt = require('bcryptjs');
 var jwt = require("jsonwebtoken")
