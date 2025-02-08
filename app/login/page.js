@@ -16,7 +16,7 @@ const [email, setemail] = useState("")
 const clickLogin = async(e)=>{
      e.preventDefault();
      setloading(true)
-    console.log(password, email)
+    // console.log(password, email)
     const response = await fetch(`/api/user/login?email=${email}&password=${password}`, {
         method : "GET",
         headers : {
