@@ -46,7 +46,7 @@ useEffect(() => {
   return (
 <>{!loading &&     <section className="bg-gray-700">
   <div className="flex flex-col items-center justify-center min-h-screen px-4 py-6 sm:px-6 lg:px-8" style={{ paddingTop: "80px", paddingBottom: "100px" }}>
-  <Link href="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+  <Link href="/" className="flex items-center mb-6 text-2xl font-semibold text-white">
     <img className="w-8 h-8 mr-2" src="/favicon.ico" alt="logo" />
     Postblog
   </Link>

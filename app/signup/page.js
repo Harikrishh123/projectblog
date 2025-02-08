@@ -64,7 +64,7 @@ const clickRegister = async(e) =>{
         <div className="bg-white h-1 opacity-10">
         </div>
   <div className="flex flex-col items-center justify-center px-6 pb-10 mx-auto md:h-screen lg:py-0 " style={{ paddingTop: "80px", paddingBottom: "100px" }} >
-      <Link href="/" className="flex items-center mb-6 text-2xl font-semibold text-gray-900 dark:text-white">
+      <Link href="/" className="flex items-center mb-6 text-2xl font-semibold text-white">
           <img className="w-8 h-8 mr-2" src="/favicon.ico" alt="logo"/>
           Postblog      
       </Link>
