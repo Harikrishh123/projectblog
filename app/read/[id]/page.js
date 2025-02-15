@@ -5,6 +5,7 @@ import { jwtDecode } from "jwt-decode";
 import { blogContext } from '@/contexts/blogs/Blogstate';
 import Link from 'next/link';
 import { alertContext } from '@/contexts/alerts/Alertstate';
+import Image from 'next/image';
 const read = () => {
      
     const {deletepost, setloading, loading} = useContext(blogContext)
@@ -92,11 +93,23 @@ const read = () => {
         </button>
       </div> : ""}
     </div>
-    <img
-      className="lg:mx-0 mx-auto h-full rounded-3xl object-cover"
+    { !image ? <img
+      className="lg:mx-0 mx-auto h- rounded-3xl object-cover"
       src={`${image}`}
       alt="about Us image"
-    />
+      // style={{ maxWidth: "100%", height: "auto" ,  display: "block"}} 
+    /> : <Image
+    // className="lg:mx-0 mx-auto h-full rounded-3xl object-cover"
+    src={`${image}`}
+    alt="about Us image"
+    width={1200}
+    height={800}
+    layout="responsive" 
+    sizes="(max-width: 768px) 100vw, 
+           (max-width: 1200px) 50vw, 
+           800px"
+    style={{ height: "auto", maxHeight: "500px" }} 
+  />}
   </div>
 </div>
 
