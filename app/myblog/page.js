@@ -50,14 +50,14 @@ export default function Home() {
 </div>
 
 {myposts.length >0 && <div   className="bottom-4 left-0 right-0 flex justify-between items-center space-x-4 p-4">
-            <button
+            <button disabled = {page==1}
         
         onClick={handlePrevious}
                 className={`px-9 py-2 rounded-lg  bg-gray-800 text-white hover:bg-gray-600 ${page == 1 ? "opacity-50 cursor-not-allowed" : ""}`} >
                 Previous
             </button>
             
-            <button onClick={handleNext}
+            <button onClick={handleNext} disabled = {success}
             
                 className={`px-10 py-2 rounded-lg bg-gray-800 text-white  hover:bg-gray-600 ${success ? "opacity-50 cursor-not-allowed" : ""}`}
             >
